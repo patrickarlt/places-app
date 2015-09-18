@@ -75,9 +75,16 @@ class PlaceMapElement extends HTMLElement {
     });
 
     // create basic tile layer
-    var streets = basemapLayer('Topographic').addTo(this.map);
+    var streets = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}{r}.png?access_token={token}', {
+      subdomains: ['a', 'b', 'c', 'd'],
+      token: 'pk.eyJ1IjoicGF0cmlja2FybHQiLCJhIjoiYlVhVHI0USJ9.GWZycFbnBt1GDt9ZqRAYTA',
+      detectRetina: true,
+      r: (L.Browser.retina) ? '@2x' : ''
+    }).addTo(this.map);
 
-    var satellite = basemapLayer('Imagery');
+    var satellite = L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token={token}', {
+      token: 'pk.eyJ1IjoicGF0cmlja2FybHQiLCJhIjoiYlVhVHI0USJ9.GWZycFbnBt1GDt9ZqRAYTA'
+    });
 
     this.layerControl = L.control.layers({
       Streets: streets,
