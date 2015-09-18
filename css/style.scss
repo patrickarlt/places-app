@@ -1,0 +1,709 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic");
+
+// Greens
+$flat-turquoise: #1ABC9C; .turquoise { background-color: $flat-turquoise; }
+$flat-green-sea: #16A085; .green-sea { background-color: $flat-green-sea; }
+$flat-emerald: #2ECC71; .emerald { background-color: $flat-emerald; }
+$flat-nephritis: #27AE60; .nephritis { background-color: $flat-nephritis; }
+
+// Blues
+$flat-peter-river: #3498DB; .peter-river { background-color: $flat-peter-river; }
+$flat-belize-hole: #2980B9; .belize-hole { background-color: $flat-belize-hole; }
+$flat-wet-asphalt: #34495E; .wet-asphalt { background-color: $flat-wet-asphalt; }
+$flat-midnight-blue: #2C3E50; .midnight-blue { background-color: $flat-midnight-blue; }
+
+// Purples
+$flat-amethyst: #9B59B6; .amethyst { background-color: $flat-amethyst; }
+$flat-wisteria: #8E44AD; .wisteria { background-color: $flat-wisteria; }
+
+// Yellows
+$flat-sunflower: #F1C40F; .sunflower { background-color: $flat-sunflower; }
+
+// Oranges
+$flat-orange: #F39C12; .orange { background-color: $flat-orange; }
+$flat-carrot: #E67E22; .carrot { background-color: $flat-carrot; }
+$flat-pumpkin: #D35400; .pumpkin { background-color: $flat-pumpkin; }
+
+// Reds
+$flat-alizarin: #E74C3C; .alizarin { background-color: $flat-alizarin; }
+$flat-pomegranate: #C0392B; .pomegranate { background-color: $flat-pomegranate; }
+
+// Grays
+$flat-clouds: #ECF0F1; .clouds { background-color: $flat-clouds; }
+$flat-silver: #BDC3C7; .silver { background-color: $flat-silver; }
+$flat-concrete: #95A5A6; .concrete { background-color: $flat-concrete; }
+$flat-asbestos: #7F8C8D; .asbestos { background-color: $flat-asbestos; }
+
+form {
+  margin: 0;
+}
+
+html {
+  font-size: 1em;
+}
+
+place-app {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  background-color: #fafafa;
+  font-family: Lato;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+  overflow: hidden;
+  display: flex;
+}
+
+place-app.standalone {
+  padding-top: 20px;
+  background: black;
+}
+
+p {margin-bottom: 1.3rem;}
+
+h1, h2, h3, h4 {
+  margin: 1.414rem 0 0.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.441rem;
+}
+
+h2 {font-size: 1.953rem;}
+
+h3 {font-size: 1.563rem;}
+
+h4 {font-size: 1.25rem;}
+
+small, .font_small {font-size: 0.8rem;}
+
+a {
+  text-decoration: none;
+  color: $flat-belize-hole;
+  &:hover {
+    color: $flat-midnight-blue;
+  }
+}
+
+#map {
+  background: #FAFAFA;
+  flex: 1 0 0;
+  height: 100%;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0 0;
+};
+
+input[type="text"],
+textarea {
+  margin-top: .25rem;
+  padding: .25rem;
+  display: block;
+  border: 2px solid $flat-silver;
+  width: 100%;
+  &:focus, &:hover {
+    border: 2px solid $flat-turquoise;
+    outline: none;
+  }
+}
+
+input[type="submit"],
+.btn {
+  display: block;
+  font-size: 1.25rem;
+  color: $flat-clouds;
+  box-sizing: border-box;
+  padding: .25rem 1rem;
+  background: $flat-peter-river;
+  border: 2px solid $flat-belize-hole;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25) ;
+  &:hover {
+    color: $flat-clouds;
+    background: $flat-belize-hole;
+  }
+  &.cancel {
+    background: $flat-alizarin;
+    border: 2px solid $flat-pomegranate;
+    &:hover {
+      background: $flat-pomegranate;
+    }
+  }
+  &.action {
+    background: $flat-emerald;
+    border: 2px solid $flat-nephritis;
+    &:hover {
+      background: $flat-nephritis;
+    }
+  }
+}
+
+textarea {
+  height: 4rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+#sidebar {
+  background: #FAFAFA;
+  box-sizing: border-box;
+  height: 100%;
+  width: 420px;
+  border-left: 2px solid $flat-concrete;
+  position: relative;
+  overflow: hidden;
+}
+
+place-list, place-form, place-detail {
+  height: 100%;
+  display: block;
+  position: relative;
+
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 3rem;
+    background: $flat-clouds;
+    flex: 0 0 3rem;
+    box-sizing: border-box;
+    border-bottom: 2px solid $flat-silver;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 1rem 1rem;
+    pointer-events: none;
+    .floater-btn {
+      pointer-events: all;
+    }
+  }
+
+  .body {
+    box-sizing: border-box;
+    height: calc(100vh - 3rem);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    top: 3rem;
+    &:after {
+      display: block;
+      content: '';
+      height: 5.5rem;
+    }
+  }
+}
+
+place-form {
+  form {
+    padding: 0 1rem;
+  }
+}
+
+place-list {
+  input[type="search"] {
+    border: none;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    border: none;
+    padding: .5rem;
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      position: relative;
+      border-bottom: 1px solid $flat-silver;
+      .list-item-body {
+        padding: 1rem 1rem 1rem 3.5rem;
+      }
+      .wrapper {
+        position: absolute;
+        top: calc(50% - 35px);
+        .image {
+          padding: 1rem 1rem 1rem .75rem;
+          width: 30px;
+          height: 35px;
+          img {
+            width: 30px;
+            height: 70px;
+          }
+        }
+      }
+      h4, p {
+        margin: 0.25rem 0;
+      }
+    }
+
+  }
+}
+
+place-detail {
+  .body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+place-map {
+  float: left;
+  #place-list-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+
+  .fa.fa-map-marker, .fa.fa-spinner {
+    line-height: 26px;
+  }
+
+  .leaflet-touch .fa.fa-map-marker, .leaflet-touch .fa-spinner {
+    line-height: 30px;
+  }
+
+  .leaflet-touch .geocoder-control {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    .geocoder-control-input {
+      height: 34px;
+      line-height: 34px;
+    }
+  }
+}
+
+ul.marker-color-selector {
+  list-style: none;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-content:         center;
+  padding: 0;
+  margin: 0;
+  li {
+    width: 20%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  [type="radio"]:not(:checked) + label span,
+  [type="radio"]:checked + label span {
+    display: block;
+    position: absolute;
+    left: -9999px;
+  }
+
+  /* Base for label styling */
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* radio bg */
+  [type="radio"]:not(:checked) + label:before,
+  [type="radio"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+  }
+
+  /* checked mark */
+  [type="radio"]:not(:checked) + label:after,
+  [type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    transition: all .2s;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+    outline: 2px solid $flat-turquoise;
+  }
+
+  /* checked mark aspect changes */
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    // transform: scale(0);
+  }
+
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    // transform: scale(1);
+  }
+
+  /* disabled radio */
+  [type="radio"]:disabled:not(:checked) + label:before,
+  [type="radio"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+
+  [type="radio"]:disabled:checked + label:after {
+    color: #999;
+  }
+
+  [type="radio"]:disabled + label {
+    color: #aaa;
+  }
+
+  /* accessibility */
+  [type="radio"]:checked:focus + label:before,
+  [type="radio"]:not(:checked):focus + label:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+
+  /* hover style just for information */
+  label:hover:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+}
+
+ul.marker-size-selector {
+  list-style: none;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  li {
+    width: 33%;
+    padding: 5px 0;
+    margin: 0;
+  }
+
+  .marker-size-s {
+    background: url('https://api.tiles.mapbox.com/v3/marker/pin-s+000@2x.png') no-repeat 25px 20px;
+    background-size: 20px 50px;
+    width: 70px;
+    height: 70px;
+    &:after, &:before {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  .marker-size-m {
+    background: url('https://api.tiles.mapbox.com/v3/marker/pin-m+000@2x.png') no-repeat 20px 15px;
+    background-size: 30px 70px;
+    width: 70px;
+    height: 70px;
+    &:after, &:before {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  .marker-size-l {
+    background: url('https://api.tiles.mapbox.com/v3/marker/pin-l+000@2x.png') no-repeat 20px 10px;
+    background-size: 35px 90px;
+    width: 70px;
+    height: 70px;
+    &:after, &:before {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  [type="radio"]:not(:checked) + label span,
+  [type="radio"]:checked + label span {
+    display: block;
+    position: absolute;
+    left: -9999px;
+  }
+
+  /* Base for label styling */
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* radio bg */
+  [type="radio"]:not(:checked) + label:before,
+  [type="radio"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+  }
+
+  /* checked mark */
+  [type="radio"]:not(:checked) + label:after,
+  [type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .2s;
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+    outline: 2px solid $flat-turquoise;
+  }
+
+  /* checked mark aspect changes */
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    // transform: scale(0);
+  }
+
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    // transform: scale(1);
+  }
+
+  /* disabled radio */
+  [type="radio"]:disabled:not(:checked) + label:before,
+  [type="radio"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+
+  [type="radio"]:disabled:checked + label:after {
+    color: #999;
+  }
+
+  [type="radio"]:disabled + label {
+    color: #aaa;
+  }
+
+  /* accessibility */
+  [type="radio"]:checked:focus + label:before,
+  [type="radio"]:not(:checked):focus + label:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+
+  /* hover style just for information */
+  label:hover:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+}
+
+ul.marker-icon-selector {
+  list-style: none;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  li {
+    width: 11%;
+    padding: 5px 0;
+    margin: 0;
+  }
+
+  .maki-icon {
+    &:after, &:before {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  [type="radio"]:not(:checked) + label span,
+  [type="radio"]:checked + label span {
+    display: block;
+    position: absolute;
+    left: -9999px;
+  }
+
+  /* Base for label styling */
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  /* radio bg */
+  [type="radio"]:not(:checked) + label:before,
+  [type="radio"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+  }
+
+  /* checked mark */
+  [type="radio"]:not(:checked) + label:after,
+  [type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .2s;
+    border: 2px solid #fafafa;
+    box-sizing: border-box;
+    outline: 2px solid $flat-turquoise;
+  }
+
+  /* checked mark aspect changes */
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    // transform: scale(0);
+  }
+
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    // transform: scale(1);
+  }
+
+  /* disabled radio */
+  [type="radio"]:disabled:not(:checked) + label:before,
+  [type="radio"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+
+  [type="radio"]:disabled:checked + label:after {
+    color: #999;
+  }
+
+  [type="radio"]:disabled + label {
+    color: #aaa;
+  }
+
+  /* accessibility */
+  [type="radio"]:checked:focus + label:before,
+  [type="radio"]:not(:checked):focus + label:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+
+  /* hover style just for information */
+  label:hover:before {
+    outline: 2px solid $flat-turquoise !important;
+  }
+}
+
+/* Viewport width at least */
+@media (min-width: 860px) {
+  #place-list-btn, #place-map-btn {
+    display: none;
+  }
+}
+
+/* Viewport width at most */
+@media (max-width: 860px) {
+  place-app.sidebar {
+    #map {
+      display: none;
+    }
+
+    #sidebar {
+      width: 100vw;
+      border: none;
+    }
+  }
+
+  place-app.map {
+    #map {
+      width: 100vw;
+    }
+
+    #sidebar {
+      display: none;
+    }
+  }
+}
+
+.floater-btn {
+  float: right;
+  @extend .btn;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.125rem;
+  padding: 0;
+  box-sizing: content-box;
+  margin: 0 0 0 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.35);
+  &.cancel {
+    float: left;
+    margin: 0;
+  }
+}
+
+.back-link {
+  line-height: 3rem;
+  padding: 0 1rem;
+}
+
+header h1 {
+  padding: 0 1rem;
+  font-size: 1.25rem;
+  line-height: 3rem;
+}
