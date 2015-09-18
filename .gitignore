@@ -3,7 +3,7 @@ CNAME
 *.pem
 data
 bundle.js
-bundle.map.js
+bundle.js.map
 .DS_Store
 js/config.js
 main.css
