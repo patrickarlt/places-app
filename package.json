@@ -1,0 +1,41 @@
+{
+  "name": "places-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && npm run watch & npm run server & npm run css",
+    "build": "browserify js/app.js -t [babelify --stage 0 --optional runtime] --debug | exorcist ./bundle.js.map > ./bundle.js",
+    "watch": "watchify js/app.js -o 'exorcist ./bundle.js.map > ./bundle.js' -t [ babelify --stage 0 --optional runtime] --debug",
+    "css": "node-sass ./css -o ./ && node-sass ./css -o ./ -w & postcss -w --use autoprefixer style.css -o main.css",
+    "server": "browser-sync start --server --files=\".css, *.html, *.js\"",
+    "deploy": "surge -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "async": "^1.4.2",
+    "autoprefixer": "^5.2.0",
+    "babelify": "^6.2.0",
+    "browser-sync": "^2.8.2",
+    "browserify": "^11.0.1",
+    "node-sass": "^3.2.0",
+    "postcss-cli": "^2.0.0",
+    "request": "^2.61.0",
+    "watchify": "^3.3.1",
+    "x-ray": "^2.0.2"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "custom-event": "^1.0.0",
+    "director": "^1.2.8",
+    "document-register-element": "^0.4.5",
+    "esri-leaflet": "^2.0.0-beta.5",
+    "esri-leaflet-geocoder": "git+ssh://git@github.com/Esri/esri-leaflet-geocoder.git#master",
+    "leaflet": "^1.0.0-beta.1",
+    "leaflet.locatecontrol": "^0.44.0",
+    "pouchdb": "^4.0.0",
+    "pouchdb-quick-search": "^1.1.0"
+  }
+}
