@@ -43,6 +43,7 @@ function slugify (text) {
 @watchAttribute('size', function (oldValue, newValue) { this.sizeInput.value = newValue })
 @watchAttribute('color', function (oldValue, newValue) { this.colorInput.value = newValue })
 @watchAttribute('icon', function (oldValue, newValue) { this.iconInput.value = newValue })
+@watchAttribute('back', function (oldValue, newValue) { this.cancelBtn.href = newValue })
 class PlaceFormElement extends HTMLElement {
 
   createdCallback () {
@@ -96,7 +97,7 @@ class PlaceFormElement extends HTMLElement {
 
         <footer>
           <button type="submit" class="floater-btn action fa fa-check" form="place-form"></button>
-          <a href="${this.back}" class="floater-btn cancel fa fa-ban" form="place-form"></a>
+          <a href="${this.back || '#/'}" class="floater-btn cancel fa fa-ban" form="place-form"></a>
         </footer>
     `);
 
