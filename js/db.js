@@ -1,6 +1,6 @@
 import PouchDB from 'pouchdb';
 import Search from 'pouchdb-quick-search';
-import config from './config';
+import config from './config.js';
 
 PouchDB.plugin(Search);
 

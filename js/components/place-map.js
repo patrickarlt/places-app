@@ -77,13 +77,13 @@ class PlaceMapElement extends HTMLElement {
     // create basic tile layer
     var streets = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}{r}.png?access_token={token}', {
       subdomains: ['a', 'b', 'c', 'd'],
-      token: 'pk.eyJ1IjoicGF0cmlja2FybHQiLCJhIjoiYlVhVHI0USJ9.GWZycFbnBt1GDt9ZqRAYTA',
+      token: 'pk.eyJ1IjoibWFwYm94IiwiYSI6IlhHVkZmaW8ifQ.hAMX5hSW-QnTeRCMAy9A8Q',
       detectRetina: true,
       r: (L.Browser.retina) ? '@2x' : ''
     }).addTo(this.map);
 
     var satellite = L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token={token}', {
-      token: 'pk.eyJ1IjoicGF0cmlja2FybHQiLCJhIjoiYlVhVHI0USJ9.GWZycFbnBt1GDt9ZqRAYTA'
+      token: 'pk.eyJ1IjoibWFwYm94IiwiYSI6IlhHVkZmaW8ifQ.hAMX5hSW-QnTeRCMAy9A8Q'
     });
 
     this.layerControl = L.control.layers({

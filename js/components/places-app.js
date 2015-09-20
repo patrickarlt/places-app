@@ -62,8 +62,8 @@ class PlaceAppElement extends HTMLElement {
     this.map.clearActiveFeature();
     this.setSidebarComponent(this.list);
     this.map.resize();
-    this.detail.back = `#${this.router.getRoute()}`;
-    this.form.back = `#${this.router.getRoute()}`;
+    this.detail.back = `#${this.router.getRoute() || '#/'}`;
+    this.form.back = `#${this.router.getRoute() || '#/'}`;
   }
 
   addPlaceRoute () {

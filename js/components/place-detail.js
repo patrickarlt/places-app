@@ -15,6 +15,7 @@ import config from '../config.js';
 @attribute('rev', String)
 @attribute('icon', String)
 @attribute('color', String)
+@attribute('back', String)
 class PlaceDetailElement extends HTMLElement {
   createdCallback () {
     this.update();
