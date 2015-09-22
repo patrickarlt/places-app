@@ -25,7 +25,7 @@ class PlaceAppElement extends HTMLElement {
 
     this.router = new Router({
       '/': this.indexRoute.bind(this),
-      '/map': this.indexRoute.bind(this),
+      '/map': this.mapRoute.bind(this),
       '/places': this.indexRoute.bind(this),
       '/places/add': this.addPlaceRoute.bind(this),
       '/places/:id': this.placeDetailRoute.bind(this),
@@ -64,6 +64,13 @@ class PlaceAppElement extends HTMLElement {
     this.map.resize();
     this.detail.back = `#${this.router.getRoute() || '#/'}`;
     this.form.back = `#${this.router.getRoute() || '#/'}`;
+  }
+
+  mapRoute () {
+    this.indexRoute();
+    this.classList.remove('sidebar');
+    this.classList.add('map');
+    this.map.resize();
   }
 
   addPlaceRoute () {

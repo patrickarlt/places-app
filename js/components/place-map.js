@@ -60,19 +60,19 @@ class PlaceMapElement extends HTMLElement {
       prefix: ''
     }).addTo(this.map);
 
+    // create search control
+    this.searchControl = geosearch({
+      providers: [
+        arcgisOnlineProvider()
+      ]
+    }).addTo(this.map);
+
     // create the locate control
     this.locateControl = new LocateControl({
       locateOptions: {
         maxZoom: 14
       }
     }).addTo(this.map);
-
-    // create search control
-    this.searchControl = geosearch({
-      providers: [
-        arcgisOnlineProvider()
-      ]
-    });
 
     // create basic tile layer
     var streets = L.tileLayer('https://{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}{r}.png?access_token={token}', {
